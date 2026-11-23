@@ -1,4 +1,4 @@
-const BACKEND_URL = 'http://backend:5000';
+const BACKEND_URL = '';
 let currentPage = 1;
 let currentFilters = {};
 
