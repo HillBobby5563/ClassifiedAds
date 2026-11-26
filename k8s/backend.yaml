@@ -25,6 +25,17 @@ spec:
                   key: POSTGRES_PASSWORD
             - name: DATABASE_URL
               value: "postgresql+psycopg://postgres:$(POSTGRES_PASSWORD)@db:5432/classifieds"
+          readinessProbe:
+            httpGet:
+              path: /api/listings
+              port: 5000
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          livenessProbe:
+            tcpSocket:
+              port: 5000
+            initialDelaySeconds: 15
+            periodSeconds: 10
 ---
 apiVersion: v1
 kind: Service

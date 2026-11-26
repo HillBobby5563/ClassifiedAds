@@ -38,6 +38,10 @@ spec:
             - name: db-data
               mountPath: /var/lib/postgresql/data
               subPath: pgdata
+          readinessProbe:
+            exec:
+              command: ["pg_isready", "-U", "postgres"]
+            periodSeconds: 5
       volumes:
         - name: db-data
           persistentVolumeClaim:
