@@ -25,6 +25,14 @@ spec:
                   key: POSTGRES_PASSWORD
             - name: DATABASE_URL
               value: "postgresql+psycopg://postgres:$(POSTGRES_PASSWORD)@db:5432/classifieds"
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "500m"
+              memory: "256Mi"
+
           readinessProbe:
             httpGet:
               path: /api/listings
