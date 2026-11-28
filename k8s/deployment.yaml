@@ -17,6 +17,13 @@ spec:
           image: hillbobby5563/classifiedads-frontend
           ports:
             - containerPort: 80
+          resources:
+            requests:
+              cpu: "10m"
+              memory: "10Mi"
+            limits:
+              cpu: "20m"
+              memory: "30Mi"
           readinessProbe:
             httpGet:
               path: /

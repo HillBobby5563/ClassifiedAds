@@ -38,6 +38,13 @@ spec:
             - name: db-data
               mountPath: /var/lib/postgresql/data
               subPath: pgdata
+          resources:
+            requests:
+              cpu: "500m"
+              memory: "256Mi"
+            limits:
+              cpu: "500m"
+              memory: "256Mi"
           readinessProbe:
             exec:
               command: ["pg_isready", "-U", "postgres"]
